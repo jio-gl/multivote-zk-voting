@@ -1,0 +1,27 @@
+{
+  "name": "multivote",
+  "version": "1.0.0",
+  "description": "A zero-knowledge proof system for private voting using Circom",
+  "main": "index.js",
+  "scripts": {
+    "setup": "bash ./scripts/setup_for_tests.sh",
+    "test": "npm run setup && hardhat test",
+    "generate-inputs": "node ./scripts/generateVoteInputs.js",
+    "test-circuits": "npm run setup && npm run generate-inputs && sh ./scripts/test_all_circuits.sh",
+    "test-contracts": "npm run setup && hardhat test",
+    "test-all": "npm run setup && npm run generate-inputs && npm run test-circuits && npm run test-contracts",
+    "clean": "bash ./scripts/clean_all.sh",
+    "clean:full": "bash ./scripts/clean_all.sh --full",
+    "generate-verifiers": "sh ./scripts/generate_verifiers.sh"
+  },
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "circomlibjs": "^0.1.7",
+    "snarkjs": "^0.7.5"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "fs-extra": "^11.3.0",
+    "hardhat": "^2.18.0"
+  }
+}
