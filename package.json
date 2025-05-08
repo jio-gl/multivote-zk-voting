@@ -13,6 +13,8 @@
     "test-all": "npm run setup && npm run test-circuits && npm run test-contracts",
     "clean": "bash ./scripts/clean_all.sh",
     "clean:full": "bash ./scripts/clean_all.sh --full",
+    "clean:frontend": "bash ./scripts/clean_frontend.sh",
+    "clean:frontend:full": "bash ./scripts/clean_frontend.sh --full",
     "generate-verifiers": "sh ./scripts/generate_verifiers.sh"
   },
   "dependencies": {
