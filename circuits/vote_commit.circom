@@ -32,12 +32,12 @@ template VoteCommitmentCircuit() {
     commitmentHasher.inputs[3] <== ballotId;
     
     // Log values for debugging
-    log("Choice:", choice);
-    log("Reveal Address:", revealAddress);
-    log("Salt:", salt);
-    log("Ballot ID:", ballotId);
-    log("Computed commitment:", commitmentHasher.out);
-    log("Expected commitment:", commitment);
+    // log("Choice:", choice);
+    // log("Reveal Address:", revealAddress);
+    // log("Salt:", salt);
+    // log("Ballot ID:", ballotId);
+    // log("Computed commitment:", commitmentHasher.out);
+    // log("Expected commitment:", commitment);
     
     // Verify the commitment matches
     commitment === commitmentHasher.out;

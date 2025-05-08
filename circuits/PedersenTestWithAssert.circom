@@ -43,15 +43,15 @@ template PedersenTestWithAssert() {
     diff_y <== hash_out[1] - expected_hash[1];
     
     // Log values for debugging
-    log("Amount bits:", amount_bits.out[0], amount_bits.out[1], amount_bits.out[2], amount_bits.out[3]);
-    log("Owner bits:", owner_bits.out[0], owner_bits.out[1], owner_bits.out[2], owner_bits.out[3]);
-    log("Salt bits:", salt_bits.out[0], salt_bits.out[1], salt_bits.out[2], salt_bits.out[3]);
-    log("Hash out X:", hash_out[0]);
-    log("Hash out Y:", hash_out[1]);
-    log("Expected X:", expected_hash[0]);
-    log("Expected Y:", expected_hash[1]);
-    log("Diff X:", diff_x);
-    log("Diff Y:", diff_y);
+    // log("Amount bits:", amount_bits.out[0], amount_bits.out[1], amount_bits.out[2], amount_bits.out[3]);
+    // log("Owner bits:", owner_bits.out[0], owner_bits.out[1], owner_bits.out[2], owner_bits.out[3]);
+    // log("Salt bits:", salt_bits.out[0], salt_bits.out[1], salt_bits.out[2], salt_bits.out[3]);
+    // log("Hash out X:", hash_out[0]);
+    // log("Hash out Y:", hash_out[1]);
+    // log("Expected X:", expected_hash[0]);
+    // log("Expected Y:", expected_hash[1]);
+    // log("Diff X:", diff_x);
+    // log("Diff Y:", diff_y);
     
     // Assert that the hash matches the expected value
     hash_out[0] === expected_hash[0];

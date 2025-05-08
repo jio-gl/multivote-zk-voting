@@ -36,11 +36,11 @@ template VoteRevealCircuit() {
     commitmentHasher.inputs[3] <== ballotId;
     
     // Log values for debugging
-    log("Choice:", choice);
-    log("Sender:", sender);
-    log("Salt:", salt);
-    log("Ballot ID:", ballotId);
-    log("Commitment:", commitmentHasher.out);
+    // log("Choice:", choice);
+    // log("Sender:", sender);
+    // log("Salt:", salt);
+    // log("Ballot ID:", ballotId);
+    // log("Commitment:", commitmentHasher.out);
     
     // We don't need to output this commitment - the contract 
     // can't verify it's in the set (would need Merkle proof)
@@ -52,8 +52,8 @@ template VoteRevealCircuit() {
     nullifierHasher.inputs[1] <== salt;
     
     // Log values for debugging
-    log("Computed nullifier:", nullifierHasher.out);
-    log("Expected nullifier:", nullifier);
+    // log("Computed nullifier:", nullifierHasher.out);
+    // log("Expected nullifier:", nullifier);
     
     // Verify the nullifier matches
     nullifier === nullifierHasher.out;
