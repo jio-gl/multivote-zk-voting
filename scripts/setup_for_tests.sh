@@ -129,16 +129,25 @@ done
 
 # Step 5: Generate inputs if needed
 if [ ! -f "inputs/vote_commit_input.json" ] || [ ! -f "inputs/vote_reveal_input.json" ]; then
-    echo -e "${YELLOW}Generating inputs for testing...${NC}"
+    echo -e "${YELLOW}Generating vote inputs for testing...${NC}"
     node scripts/generateVoteInputs.js
     if [ $? -ne 0 ]; then
-        echo -e "${RED}Error generating inputs${NC}"
+        echo -e "${RED}Error generating vote inputs${NC}"
         exit 1
     fi
-    echo -e "${GREEN}✓ Test inputs generated${NC}"
+    echo -e "${GREEN}✓ Vote test inputs generated${NC}"
 else
-    echo -e "${GREEN}✓ Test inputs already exist${NC}"
+    echo -e "${GREEN}✓ Vote test inputs already exist${NC}"
 fi
+
+# Step 6: Generate Pedersen inputs for testing
+echo -e "${YELLOW}Generating Pedersen inputs for testing...${NC}"
+node scripts/generatePedersenInputs.js
+if [ $? -ne 0 ]; then
+    echo -e "${RED}Error generating Pedersen inputs${NC}"
+    exit 1
+fi
+echo -e "${GREEN}✓ Pedersen test inputs generated${NC}"
 
 echo -e "${GREEN}====================[ Setup Complete ]====================${NC}"
 echo "All files needed for testing have been prepared." 

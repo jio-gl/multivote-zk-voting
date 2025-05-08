@@ -7,9 +7,10 @@
     "setup": "bash ./scripts/setup_for_tests.sh",
     "test": "npm run setup && hardhat test",
     "generate-inputs": "node ./scripts/generateVoteInputs.js",
-    "test-circuits": "npm run setup && npm run generate-inputs && sh ./scripts/test_all_circuits.sh",
+    "generate-pedersen-inputs": "node ./scripts/generatePedersenInputs.js",
+    "test-circuits": "npm run setup && sh ./scripts/test_all_circuits.sh",
     "test-contracts": "npm run setup && hardhat test",
-    "test-all": "npm run setup && npm run generate-inputs && npm run test-circuits && npm run test-contracts",
+    "test-all": "npm run setup && npm run test-circuits && npm run test-contracts",
     "clean": "bash ./scripts/clean_all.sh",
     "clean:full": "bash ./scripts/clean_all.sh --full",
     "generate-verifiers": "sh ./scripts/generate_verifiers.sh"
