@@ -37,6 +37,8 @@ MultiVote offers several significant advantages over traditional voting systems:
 
 4. **On-chain Verification**: All verifications happen trustlessly on-chain, ensuring that the integrity of the voting process is maintained in a fully transparent manner.
 
+5. **Unlinkable Vote Revelation**: A key strength of this approach is that voters only need a second fresh address to reveal their vote. This address must be unlinkable to their public commit address, providing an additional layer of privacy. This separation of commit and reveal identities makes it virtually impossible to correlate a user's voting patterns or preferences with their public identity, even with sophisticated chain analysis.
+
 ## Circuits
 
 The project includes zero-knowledge circuits for voting:
@@ -89,6 +91,8 @@ The project includes a comprehensive testing workflow with organized npm command
 | `npm run test-all` | Run all tests (circuits and contracts) |
 | `npm run clean` | Clean up all build files and generated content |
 | `npm run clean:full` | Clean everything including node_modules |
+| `npm run clean:frontend` | Clean frontend build files |
+| `npm run clean:frontend:full` | Clean frontend build files and node_modules |
 | `npm run generate-verifiers` | Generate Solidity verifier contracts for all circuits |
 
 ### Cleaning the Project
@@ -111,6 +115,18 @@ For a full clean (including node_modules):
 
 ```bash
 npm run clean:full
+```
+
+To clean only the frontend:
+
+```bash
+npm run clean:frontend
+```
+
+For a full frontend clean (including node_modules):
+
+```bash
+npm run clean:frontend:full
 ```
 
 ### Detailed Testing Workflow
@@ -235,6 +251,23 @@ The circuits improve privacy by:
 2. Preventing graph analysis that could de-anonymize users
 3. Making it impossible to determine voting patterns
 4. Eliminating reliance on trusted third parties who could compromise privacy
+5. **Address Separation**: A key privacy strength is that users can commit votes with one address and reveal with a completely different, unlinkable address. This separation prevents correlation between a user's public identity and their voting activity, even in the face of advanced blockchain analysis.
+
+#### Using Unlinkable Addresses for Revelation
+
+One of the most powerful privacy features of MultiVote is the ability to use different addresses for committing and revealing votes. Here's how it works:
+
+1. A user commits their vote from their primary address (Address A)
+2. The same user can later reveal their vote from a completely different address (Address B)
+3. No on-chain connection exists between Addresses A and B
+4. Even if Address A is known publicly, the vote remains private as long as Address B cannot be linked to it
+
+This approach provides significant privacy benefits compared to traditional voting systems, or even other blockchain voting systems that use the same address for both actions. By requiring a fresh address for revelation that's unlinkable to the commit address, MultiVote makes it virtually impossible to track voting patterns or preferences of specific users.
+
+To maintain maximum privacy, users should follow these best practices:
+- Use a completely fresh address for vote revelation
+- Never transfer funds directly between commit and reveal addresses
+- Ensure metadata (like transaction timing, gas settings) doesn't create patterns that could link the addresses
 
 ## License
 
